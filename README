@@ -1,0 +1,30 @@
+######################################################################
+## File: $Id: README 3529 2006-02-06 04:16:01Z spadkins $
+######################################################################
+
+1. What is the App-WorkQueue distribution?
+
+It implements a new service in the App-Context framework called a
+WorkQueue.  A normal queue supports push() and pop() operations
+where the entries push()ed onto the queue come out in a first-in-
+first-out (FIFO) basis.  A WorkQueue however is used to control the
+processing of units of work, where the order that entries are
+processed is prioritized subject to various constraints.
+
+Therefore, a WorkQueue supports the following operations.
+
+  push()      - add a unit of work to the queue
+  acquire()   - get the highest priority entry subject to constraints
+  release()   - remove an (acquired) entry from the queue
+  unacquire() - return an (acquired) entry to the unacquired state
+
+2. How do I install it?
+
+To install this module, cd to the directory that contains this README
+file and type the following (as usual).
+
+   perl Makefile.PL
+   make
+   make test
+   make install
+
